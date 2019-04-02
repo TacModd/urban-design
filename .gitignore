@@ -1,2 +1,5 @@
 # comment
 ud/settings.py
+gallery/migrations/
+*.pyc
+*/__pycache__/
