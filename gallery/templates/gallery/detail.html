@@ -1,0 +1,20 @@
+<h1>{{ gallery.gallery_desc }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p> %}
+
+<form action ="{% url 'gallery:vote' gallery.id %}" method="post">
+{% csrf_token %}
+{% for image in gallery.choice_set.all %}
+	<input type="radio" name="image" id="choice{{ forloop.counter }}" value="{{ image.id }}">
+	<label for="choice{{ forloop.counter }}">{{ image.image_text }}</label><br>
+{% endfor %}
+<input type="submit" value="Vote">
+</form>
+
+<!--
+<ul>
+{% for image in gallery.choice_set.all %}
+	<li>{{ image.image_text }}</li>
+{% endfor %}
+</ul>
+-->

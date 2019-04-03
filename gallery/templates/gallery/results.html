@@ -1,0 +1,9 @@
+<h1>{{ gallery.gallery_desc }}</h1>
+
+<ul>
+{% for image in gallery.choice_set.all %}
+	<li>{{ image.image_text }} -- {{ image.votes }} vote{{ image.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'gallery:detail' gallery.id %}">Vote again?</a>

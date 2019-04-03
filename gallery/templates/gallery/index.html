@@ -1,0 +1,11 @@
+{% if latest_galleries %}
+	<ul>
+	{% for g in latest_galleries %}
+		# <li><a href="/gallery/{{ g.id }}/">{{ g.gallery_desc }}</a></li>
+		<li><a href="{% url 'gallery:detail' gallery.id %}">{{ gallery.gallery_desc }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No galleries are available.</p>
+{% endif %}
+
